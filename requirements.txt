@@ -1,0 +1,17 @@
+aldryn-client==2.3.5
+attrs==18.2.0
+certifi==2018.10.15
+chardet==3.0.4
+Click==7.0
+colorama==0.4.0
+divio-cli==3.3.8
+geographiclib==1.49
+geopy==1.17.0
+idna==2.7
+Pillow==5.2.0
+pyaml==17.12.1
+PyYAML==3.13
+requests==2.20.0
+six==1.11.0
+tabulate==0.8.2
+urllib3==1.24
