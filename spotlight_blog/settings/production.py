@@ -139,7 +139,8 @@ INSTALLED_APPS = (
     'parler',
     'sortedm2m',
     'taggit',
-    'spotlight_blog'
+    'spotlight_blog',
+    'gunicorn'
 )
 
 LANGUAGES = (
