@@ -1,1 +1,1 @@
-web: gunicorn dheroku_example.wsgi
+web: gunicorn spotlight_blog.wsgi
