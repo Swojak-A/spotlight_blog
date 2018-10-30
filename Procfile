@@ -1,1 +1,1 @@
-web: gunicorn spotlight_blog.wsgi
+web: python manage.py run_gunicorn
