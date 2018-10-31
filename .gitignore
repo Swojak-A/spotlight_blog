@@ -108,4 +108,4 @@ spotlight_blog/settings/local.py
 req_basic_dcms_set.txt
 
 # default database
-db.sqlite3
+project.db
