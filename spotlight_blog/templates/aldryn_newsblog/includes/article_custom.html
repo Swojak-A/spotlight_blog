@@ -1,0 +1,23 @@
+{% load i18n apphooks_config_tags cms_tags sekizai_tags staticfiles thumbnail %}
+
+<article class="aldryn-newsblog-article
+  {% if article.is_featured %} aldryn-newsblog-featured{% endif %}
+  {% if not article.published %} unpublished{% endif %}
+  {% if article.future %} future{% endif %}">
+
+    {% if detail_view %}
+        <hr>
+
+        <div class="lead">
+            {% render_model article "lead_in" %}
+        </div>
+    {% endif %}
+
+    {% if detail_view %}
+        <div class="content">
+            {% render_placeholder article.content language placeholder_language %}
+        </div>
+    {% endif %}
+</article>
+
+{% addtoblock "css" %}<link rel="stylesheet" href="{% static 'css/aldryn-newsblog/article.css' %}">{% endaddtoblock %}
