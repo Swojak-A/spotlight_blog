@@ -4,31 +4,54 @@
   {% if article.is_featured %} aldryn-newsblog-featured{% endif %}
   {% if not article.published %} unpublished{% endif %}
   {% if article.future %} future{% endif %}">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
 
         <hr>
 
-        <div class="post-preview">
-          <a href="{% namespace_url 'article-detail' article.slug namespace=namespace default='' %}">
-              <h2 class="post-title">
-                  {% render_model article "title" %}
-              </h2>
-              <h3 class="post-subtitle">
-                  {% if not detail_view %}
-                      {% render_model article "lead_in" "" "" "truncatewords:'20'" %}
-                  {% else %}
-                      {% render_model article "lead_in" %}
-                  {% endif %}
-              </h3>
-          </a>
-          <p class="post-meta">
-            {% include "aldryn_newsblog/includes/author.html" with author=article.author %}
-            on 
-            {{ article.publishing_date|date }}
-          </p>
+        <div class="post-pic" style="background-image: url({% if article.featured_image_id %}
+    {% thumbnail article.featured_image 1200x400 crop subject_location=article.featured_image.subject_location %}
+{% else %}
+    {% static 'img/post-bg.jpg' %}
+{% endif %});">
+          <div class="overlay">
+
+            <div class="post-preview">
+
+                <a href="{% namespace_url 'article-detail' article.slug namespace=namespace default='' %}">
+                    <h2 class="post-title">
+                        {% render_model article "title" %}
+                    </h2>
+                    <h3 class="post-subtitle">
+                        {% if not detail_view %}
+                            {% render_model article "lead_in" "" "" "truncatewords:'18'" %}
+                        {% else %}
+                            {% render_model article "lead_in" %}
+                        {% endif %}
+                    </h3>
+                </a>
+                <p class="post-meta">
+                    <span class="meta">
+                      <a class="
+                        {% if article.categories %}
+                          {% if article.categories.first.name == 'Materiał Śledczy' %}
+                            category-mat-sled
+                          {% elif article.categories.first.name == 'Od redakcji' %}
+                            category-od-red
+                          {% endif %}
+                        {% endif %}" href="#">
+                        {% if article.categories %}
+                            {{ article.categories.first.name }}
+                        {% endif %}
+                      </a>
+                      • {{ article.publishing_date|date }} • {% include "aldryn_newsblog/includes/author.html" with author=article.author %}</span>
+                </p>
+
+            </div>
+
+          </div>
         </div>
+
+
 
         {% if detail_view %}
             <div class="lead">
@@ -42,9 +65,6 @@
             </div>
         {% endif %}
 
-      </div>
-    </div>
-  </div>
-</article>
+
 
 {% addtoblock "css" %}<link rel="stylesheet" href="{% static 'css/aldryn-newsblog/article.css' %}">{% endaddtoblock %}

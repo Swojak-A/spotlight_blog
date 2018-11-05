@@ -22,7 +22,18 @@
                 Tutaj powinien być podtytuł
               </h2>
               <span class="meta">
-                <a href="#">Materiał śledczy</a>
+                <a class="
+                  {% if article.categories %}
+                    {% if article.categories.first.name == 'Materiał Śledczy' %}
+                      category-mat-sled
+                    {% elif article.categories.first.name == 'Od redakcji' %}
+                      category-od-red
+                    {% endif %}
+                  {% endif %}" href="#">
+                  {% if article.categories %}
+                      {{ article.categories.first.name }}
+                  {% endif %}
+                </a>
                 • August 24, 2018</span>
             </div>
           </div>
@@ -42,7 +53,7 @@
     <p class="post-meta">
       Opublikowane przez: 
       {% include "aldryn_newsblog/includes/author.html" with author=article.author %}
-       dnia  
+      dnia  
       {{ article.publishing_date|date }}
     </p>
 

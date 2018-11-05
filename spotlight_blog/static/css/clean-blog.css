@@ -131,6 +131,8 @@ img::-moz-selection {
   background: transparent;
 }
 
+
+/* NAVBAR */
 #mainNav {
   position: absolute;
   border-bottom: 1px solid #e9ecef;
@@ -320,7 +322,8 @@ header.masthead .post-heading .subheading {
   font-family: 'Montserrat', sans-serif;
 }
 
-header.masthead .post-heading .meta {
+.meta {
+  font-style: normal;
   font-size: 14px;
   font-weight: 700;
   font-family: 'Montserrat', sans-serif;
@@ -328,8 +331,17 @@ header.masthead .post-heading .meta {
   color: #868e96;
 }
 
-header.masthead .post-heading .meta a {
-  color: #800000;
+.meta a {
+  color: #212529;
+  text-decoration: none;
+}
+
+.category-mat-sled{
+  color: #800000 !important;
+}
+
+.category-od-red{
+  color: #02008D !important;
 }
 
 @media only screen and (min-width: 768px) {
@@ -339,6 +351,19 @@ header.masthead .post-heading .meta a {
   header.masthead .post-heading .subheading {
     font-size: 30px;
   }
+}
+
+.post-pic {
+  padding-top: 150px;
+}
+
+.post-pic .overlay {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: white;
+  opacity: 0.8;
 }
 
 .post-preview > a {
@@ -487,6 +512,12 @@ footer .copyright {
 
 .form-control {
   border: 2px  solid #ced4da !important;
+}
+
+/* POSTS */
+section {
+  margin-top: 40px;
+  margin-bottom: 30px;
 }
 
 
