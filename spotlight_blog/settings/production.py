@@ -33,7 +33,7 @@ DEBUG = True
 from spotlight_blog.aws.conf import *
 
 
-ALLOWED_HOSTS = ["spotlight-blog.herokuapp.com"]
+ALLOWED_HOSTS = ["spotlight-blog.herokuapp.com", "www.wydzialdziennikarstwa.online"]
 
 # Application definition
 
