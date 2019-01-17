@@ -1,6 +1,6 @@
 from .base import *
 
-is_production = False
+is_production = True
 
 if is_production == True:
     from .production import *
