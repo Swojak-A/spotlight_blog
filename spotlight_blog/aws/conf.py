@@ -5,6 +5,7 @@ try:
 except:
     access_key = os.environ.get("AWS_ACCESS_KEY")
     secret_key = os.environ.get("AWS_SECRET_KEY")
+    bucket_name = os.environ.get("AWS_BUCKET_NAME")
 
 AWS_ACCESS_KEY_ID = access_key
 AWS_SECRET_ACCESS_KEY = secret_key
@@ -14,7 +15,7 @@ AWS_QUERYSTRING_AUTH = False
 
 DEFAULT_FILE_STORAGE = 'spotlight_blog.aws.utils.MediaRootS3BotoStorage'
 STATICFILES_STORAGE = 'spotlight_blog.aws.utils.StaticRootS3BotoStorage'
-AWS_STORAGE_BUCKET_NAME = 'swa-heroku'
+AWS_STORAGE_BUCKET_NAME = bucket_name
 S3DIRECT_REGION = 'eu-central-1'
 S3_URL = '//%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
 MEDIA_URL = '//%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
